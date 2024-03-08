@@ -20,9 +20,17 @@ class TaskController extends Controller
     {
         task::create([
             "task" => $request->task,
+            "description" => $request->description,
         ]);
 
         return redirect(route("task.index"));
+    }
+
+    //Show note
+    public function show(task $task )
+    {
+
+        return view("task.show", compact("task"));
     }
 
 
